@@ -25,7 +25,7 @@ app.use('/api/v1/costs', costRouter);
 
 // 404 error
 app.all('*', (req, res, next) => {
-    const err = new HttpException(404, 'Endpoint Not Found');
+    const err = new HttpException(404, 'Endpoint No Encontrado');
     next(err);
 });
 

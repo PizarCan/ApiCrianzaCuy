@@ -37,6 +37,33 @@ class CostController {
         res.status(201).send('¡Se grabó correctamente!');
     };
 
+    maintenanceContributionMargin = async(req, res, next) => {
+
+        this.checkValidation(req);
+
+        const result = await CostModel.maintenanceCost(req.body);
+
+        if (!result) {
+            throw new HttpException(500, 'Algo salió mal');
+        }
+
+        if (result.inserted_rows > 0)
+            res.status(201).send('¡Se grabó correctamente!');
+        else
+            res.status(400).send('¡Ocurrió un problema en el mantenimiento!');
+    };
+
+    getCostResumeByDni = async(req, res, next) => {
+
+        let costResumeList = await CostModel.listCostResume(req.params.dni);
+
+        if (!costResumeList.length) {
+            throw new HttpException(404, 'No se encontró el resumen de costos');
+        }
+
+        res.send(costResumeList[0]);
+    };
+
     getCostVariableByDni = async(req, res, next) => {
 
         const costVariables = {dni: req.params.id, tipo: req.params.type}

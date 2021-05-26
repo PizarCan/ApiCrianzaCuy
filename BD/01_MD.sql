@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS DetalleCosteo
      dni      			CHAR(8) NOT NULL, 
      idTipoFase			SMALLINT NOT NULL,
      idTipoCosteo		SMALLINT NOT NULL,
-     Cantidad			SMALLINT,
+     Cantidad			DECIMAL(9,2),
      CostoUnitario		DECIMAL(9,2),
      CostoTotal			DECIMAL(9,2),
      CostoMensual		DECIMAL(9,2),
@@ -68,6 +68,28 @@ CREATE TABLE IF NOT EXISTS DetalleCosteo
      CONSTRAINT FOREIGN KEY FK_PuenteFase_DetalleCosteo (idTipoFase) REFERENCES PuenteCosteoFase (idFase)
 ); 
 
+DROP TABLE IF EXISTS tmpJson; 
+
+CREATE TABLE IF NOT EXISTS tmpJson (
+	id SMALLINT, 
+    dni CHAR(8), 
+    idCosteo SMALLINT, 
+    idFase SMALLINT, 
+	cantidad DECIMAL(9,2), 
+    costoUnitario DECIMAL(9,2) DEFAULT NULL, 
+    costoTotal DECIMAL(9,2) DEFAULT NULL,
+	costoMensual DECIMAL(9,2) DEFAULT NULL, 
+    fecha DATE
+);
+
+DROP TABLE IF EXISTS DetalleConsolidado; 
+
+CREATE TABLE IF NOT EXISTS DetalleConsolidado (
+    dni CHAR(8), 
+	ValorVenta1 DECIMAL(9,2), 
+    ValorVenta2 DECIMAL(9,2), 
+    FechaRegistro DATE
+);
   
   
   

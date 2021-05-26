@@ -41,9 +41,8 @@ class UserModel {
         const sql = 'CALL IngresarUsuario_SP(?,?,?,?,?)';
 
         const result = await query(sql, [dni, password, nombres, apellidos, role]);
-        const affectedRows = result ? result.affectedRows : 0;
 
-        return affectedRows;
+        return result[0][0];
     }
 
     /*

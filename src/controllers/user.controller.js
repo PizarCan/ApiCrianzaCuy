@@ -65,7 +65,10 @@ class UserController {
             throw new HttpException(500, 'Algo salió mal');
         }
 
-        res.status(201).send('¡Se creó el usuario!');
+        if (result.inserted_rows == 19)
+            res.status(201).send('¡Se creó el usuario!');
+        else
+            res.status(400).send('¡No se insertó la plantilla base!');
     };
 
     updateUser = async(req, res, next) => {

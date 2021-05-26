@@ -1,7 +1,7 @@
 /*
 	04_DT - INSERCIÓN DE DATOS
 */
-INSERT INTO Usuario VALUES (id, '47238670', '$2a$08$i0XKZ.MvN89VFIp1FZx33.ePn3YUTr7WZkXzKHufCSYDFytKZijXW', 'Luis Eduardo', 'Pizarro Canto', 'SuperUser');
+##INSERT INTO Usuario VALUES (id, '47238670', '$2a$08$i0XKZ.MvN89VFIp1FZx33.ePn3YUTr7WZkXzKHufCSYDFytKZijXW', 'Luis Eduardo', 'Pizarro Canto', 'SuperUser');
 
 /* Insertar Tipo Fase */
 
@@ -73,9 +73,10 @@ SELECT null, id AS idTipoCosteo, 4 FROM TipoCosteo WHERE Tipo = 'V'
 UNION ALL
 SELECT null, id AS idTipoCosteo, 5 FROM TipoCosteo WHERE Tipo = 'F';
 
+/*
 INSERT INTO DetalleCosteo (id, dni, idTipoFase, idTipoCosteo, Cantidad, 
 						   CostoUnitario, CostoTotal, CostoMensual, FechaRegistro)
 				   VALUES (id, '47238670', 1, 2, 1, 35.00, 1.17, 0.00, CAST(NOW() AS DATE))
-    
+*/  
 
 	
